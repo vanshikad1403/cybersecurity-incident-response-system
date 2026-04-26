@@ -19,10 +19,18 @@
 </table>
 
 <h2>Add Mitigation Action</h2>
-<input type="number" id="alert_id" placeholder="Alert ID">
-<input type="text" id="action_taken" placeholder="Action Taken">
-<button onclick="addAction()">Submit</button>
 
+<!-- ✅ Wrap inside form (better handling) -->
+<form id="actionForm">
+    <input type="number" id="alert_id" placeholder="Alert ID" required>
+    <input type="text" id="action_taken" placeholder="Action Taken" required>
+    
+    <!-- ✅ FIXED BUTTON -->
+    <button type="submit" id="submitBtn">Submit</button>
+</form>
+
+<!-- ✅ Correct script path -->
 <script src="/static/script.js"></script>
+
 </body>
 </html>

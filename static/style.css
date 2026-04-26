@@ -1,28 +1,81 @@
 body {
     font-family: Arial;
-    background: #0f172a;
-    color: white;
-    padding: 20px;
+    margin: 0;
+    background: #f4f6f9;
 }
 
-h1 {
+/* NAVBAR */
+nav {
+    background: linear-gradient(90deg, #1e293b, #2563eb);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* TABLE */
+table {
+    width: 90%;
+    margin: 20px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+}
+
+th {
+    background: #2563eb;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
     text-align: center;
 }
 
-table {
-    width: 100%;
-    margin-bottom: 20px;
-    border-collapse: collapse;
+tr:nth-child(even) {
+    background: #f1f5f9;
 }
 
-th, td {
-    border: 1px solid #334155;
-    padding: 10px;
-}
+/* STATUS */
+.pending { color: orange; }
+.completed { color: green; }
 
+/* BUTTON */
 button {
-    padding: 10px;
-    background: #38bdf8;
+    padding: 8px 15px;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
+    background: #2563eb;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.complete-btn {
+    background: #16a34a;
+}
+
+/* CARDS */
+.card {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
 }

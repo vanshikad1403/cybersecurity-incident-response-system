@@ -6,94 +6,90 @@ app = Flask(__name__)
 def get_db():
     return mysql.connector.connect(
         host="127.0.0.1",
-        user="vanshika",   
-        password="GUNGUN^$A",  
+        user="root",
+        password="GUNGUN64A",
         database="cybersecurity_db"
     )
 
-# Home
 @app.route('/')
-def home():
-    return render_template('index.html')
+def dashboard():
+    return render_template('dashboard.html')
 
+@app.route('/events_page')
+def events_page():
+    return render_template('events.html')
 
-# =========================
-# EVENTS API
-# =========================
+@app.route('/alerts_page')
+def alerts_page():
+    return render_template('alerts.html')
+
+@app.route('/actions_page')
+def actions_page():
+    return render_template('actions.html')
+
+# APIs
 @app.route('/events')
 def events():
-    try:
-        db = get_db()
-        cursor = db.cursor(dictionary=True)
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM Events")
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return jsonify(data)
 
-        cursor.execute("SELECT * FROM Events")
-        data = cursor.fetchall()
-
-        cursor.close()
-        db.close()
-
-        return jsonify(data)
-
-    except Exception as e:
-        print("EVENT ERROR:", e)
-        return jsonify({"error": str(e)}), 500
-
-
-# =========================
-# ALERTS API
-# =========================
 @app.route('/alerts')
 def alerts():
-    try:
-        db = get_db()
-        cursor = db.cursor(dictionary=True)
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM Alerts")
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return jsonify(data)
 
-        cursor.execute("SELECT * FROM Alerts")
-        data = cursor.fetchall()
+@app.route('/actions')
+def actions():
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM Mitigation_Actions")
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return jsonify(data)
 
-        cursor.close()
-        db.close()
-
-        return jsonify(data)
-
-    except Exception as e:
-        print("ALERT ERROR:", e)
-        return jsonify({"error": str(e)}), 500
-
-
-# =========================
-# ADD MITIGATION ACTION
-# =========================
 @app.route('/add_action', methods=['POST'])
 def add_action():
-    try:
-        data = request.json
+    data = request.json
+    db = get_db()
+    cursor = db.cursor()
 
-        db = get_db()
-        cursor = db.cursor()
+    cursor.execute(
+        "INSERT INTO Mitigation_Actions (alert_id, action_taken, status) VALUES (%s,%s,%s)",
+        (data['alert_id'], data['action_taken'], "Pending")
+    )
 
-        query = """
-        INSERT INTO Mitigation_Actions (alert_id, action_taken, status)
-        VALUES (%s, %s, %s)
-        """
+    db.commit()
+    cursor.close()
+    db.close()
 
-        cursor.execute(query, (
-            data['alert_id'],
-            data['action_taken'],
-            "Pending"
-        ))
+    return jsonify({"message": "Action Added"})
 
-        db.commit()
+@app.route('/update_action/<int:id>', methods=['POST'])
+def update_action(id):
+    db = get_db()
+    cursor = db.cursor()
 
-        cursor.close()
-        db.close()
+    cursor.execute(
+        "UPDATE Mitigation_Actions SET status='Completed' WHERE action_id=%s",
+        (id,)
+    )
 
-        return jsonify({"message": "Action Added Successfully"})
+    db.commit()
+    cursor.close()
+    db.close()
 
-    except Exception as e:
-        print("INSERT ERROR:", e)
-        return jsonify({"error": str(e)}), 500
-
+    return jsonify({"message": "Updated"})
 
 if __name__ == '__main__':
     app.run(debug=True)

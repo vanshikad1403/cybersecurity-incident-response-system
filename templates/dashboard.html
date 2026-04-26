@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    <h2>🔐 Cyber Dashboard</h2>
+    <ul>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/events_page">Events</a></li>
+        <li><a href="/alerts_page">Alerts</a></li>
+        <li><a href="/actions_page">Actions</a></li>
+    </ul>
+</nav>
+
+<h1 style="margin-left:20px;">Security Overview</h1>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap; margin:20px;">
+
+    <div class="card">
+        <h3>Total Events</h3>
+        <p id="totalEvents">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Alerts</h3>
+        <p id="totalAlerts">0</p>
+    </div>
+
+    <div class="card">
+        <h3>High Severity</h3>
+        <p id="highEvents">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Open Alerts</h3>
+        <p id="openAlerts">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Closed Alerts</h3>
+        <p id="closedAlerts">0</p>
+    </div>
+
+</div>
+
+<h2 style="margin-left:20px;">Recent Events</h2>
+<table id="recentEvents"></table>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
