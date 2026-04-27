@@ -65,6 +65,10 @@ User → Frontend (HTML/JS) → Flask (Backend) → MySQL Database → Response 
 ## 📸 Screenshot
 
 <img width="1919" height="979" alt="image" src="<img width="1918" height="982" alt="Screenshot 2026-04-27 133800" src="https://github.com/user-attachments/assets/d2464760-f502-4488-af0d-547df25a20ac" />
+src="<img width="1918" height="1036" alt="Screenshot 2026-04-27 140444" src="https://github.com/user-attachments/assets/407c28b2-d0e5-4866-b406-bddc4e53c2a1" />
+src="<img width="1919" height="1039" alt="Screenshot 2026-04-27 140456" src="https://github.com/user-attachments/assets/6065a13f-aff7-40c2-b027-9226ef531dad" />
+src="<img width="1919" height="1027" alt="Screenshot 2026-04-27 140505" src="https://github.com/user-attachments/assets/8c2c6db1-6f23-4db7-af75-8e52f026b7c2" />
+
 " />
 
 
