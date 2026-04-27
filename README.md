@@ -47,29 +47,6 @@ It helps in tracking system events, generating alerts, and recording mitigation 
 
 ---
 
-## ▶️ How to Run the Project
-
-1. Import the database:
-
-   * Open MySQL Workbench
-   * Run `schema.sql`
-
-2. Update database credentials in `app.py`
-
-3. Run the application:
-
-   ```
-   python app.py
-   ```
-
-4. Open browser:
-
-   ```
-   http://127.0.0.1:5000
-   ```
-
----
-
 ## 📊 Project Flow
 
 User → Frontend (HTML/JS) → Flask (Backend) → MySQL Database → Response → UI
