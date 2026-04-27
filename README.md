@@ -87,7 +87,8 @@ User → Frontend (HTML/JS) → Flask (Backend) → MySQL Database → Response 
 
 ## 📸 Screenshot
 
-<img width="1919" height="979" alt="image" src="https://github.com/user-attachments/assets/31f48965-c6f6-4960-9866-542f430c0841" />
+<img width="1919" height="979" alt="image" src="<img width="1918" height="982" alt="Screenshot 2026-04-27 133800" src="https://github.com/user-attachments/assets/d2464760-f502-4488-af0d-547df25a20ac" />
+" />
 
 
 ---
